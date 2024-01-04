@@ -1,4 +1,4 @@
-# CountDown-Timer
+# Projeto Relógio Digital
 
 ## Descrição
 Este projeto é um relógio digital simples com funcionalidades estéticas, incluindo um fundo GIF, estilo de relógio redondo, e cores dinâmicas. Ele mostra o tempo atual no formato 12 horas com indicação de AM ou PM.
@@ -26,4 +26,3 @@ Contribuições são bem-vindas! Por favor, sinta-se livre para fork, clone, mod
 ## Créditos
 Desenvolvido por Rodrigoo0m.
 Inspirado por projetos de relógio digital e estilização web.
-
