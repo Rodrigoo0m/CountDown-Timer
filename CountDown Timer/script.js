@@ -1,30 +1,25 @@
-// Definir a data e hora para a contagem regressiva (por exemplo, "Jan 5, 2025 15:37:25")
-var countDownDate = new Date("Jan 5, 2025 15:37:25").getTime();
-
-// Atualizar a contagem regressiva a cada 1 segundo
-var x = setInterval(function() {
-
-  // Obter a data e hora de hoje
-  var now = new Date().getTime();
+function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+  
+    // Formatação de 12 horas com AM e PM
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // a hora '0' deve ser '12'
+  
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
     
-  // Encontrar a distância entre agora e a data da contagem regressiva
-  var distance = countDownDate - now;
-    
-  // Cálculos de tempo para dias, horas, minutos e segundos
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Exibir o resultado no elemento com id="countdown"
-  document.getElementById("days").innerHTML = days + "d ";
-  document.getElementById("hours").innerHTML = hours + "h ";
-  document.getElementById("minutes").innerHTML = minutes + "m ";
-  document.getElementById("seconds").innerHTML = seconds + "s ";
-    
-  // Se a contagem regressiva terminar, escreva algum texto
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
+    var timeString = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+    document.getElementById('clock').innerHTML = timeString;
+  
+    // Mudança de cor dinâmica opcional (remova se não quiser)
+    var color = "#" + hours.toString(16) + minutes.toString(16) + seconds.toString(16);
+    document.getElementById('clock').style.borderColor = color;
   }
-}, 1000);
+  
+  // Atualiza o relógio a cada segundo
+  setInterval(updateClock, 1000);
+  
